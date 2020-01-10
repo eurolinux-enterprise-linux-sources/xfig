@@ -3,7 +3,7 @@
 Summary: An X Window System tool for drawing basic vector graphics
 Name: xfig
 Version: 3.2.5
-Release: 22.a.1%{?dist}
+Release: 23.a%{?dist}
 License: MIT
 Group: Applications/Multimedia
 URL: http://www.xfig.org/
@@ -29,6 +29,7 @@ Patch17: xfig-3.2.5-rh490257.patch
 Patch18: xfig-3.2.5-rh490259.patch
 Patch19: xfig-3.2.5-debian.patch
 Patch20: xfig-3.2.5-rh494193.patch
+Patch21: xfig-3.2.5b-fix-eps-reading.patch
 
 BuildRequires: libjpeg-devel
 BuildRequires: libpng-devel
@@ -109,6 +110,7 @@ Files common to both the plain Xaw and the Xaw3d version of xfig.
 %patch18 -p1
 %patch19 -p1
 %patch20 -p1
+%patch21 -p1
 rm Doc/html/images/sav1a0.tmp
 
 
@@ -199,6 +201,9 @@ fi
 
 
 %changelog
+* Thu Mar 29 2012 Stanislav Ochotnicky <sochotnicky@redhat.com> - 3.2.5-23.a
+- Resolves: rhbz#806689
+
 * Mon Nov 30 2009 Dennis Gregorovic <dgregor@redhat.com> - 3.2.5-22.a.1
 - Rebuilt for RHEL 6
 
@@ -284,7 +289,7 @@ fi
 - rebuild
 
 * Tue May 16 2006 Than Ngo <than@redhat.com> 3.2.4-21
-- fix #191816, Xaw3d build problem 
+- fix #191816, Xaw3d build problem
 
 * Fri May 05 2006 Than Ngo <than@redhat.com> 3.2.4-20
 - fix #169330, wrong docdir
@@ -313,10 +318,10 @@ fi
 - rebuilt
 
 * Tue Nov 15 2005 Than Ngo <than@redhat.com> 3.2.4-15
-- fix for modular X 
+- fix for modular X
 
 * Mon Oct 24 2005 Than Ngo <than@redhat.com> 3.2.4-14
-- enable xpm support #158422 
+- enable xpm support #158422
 
 * Tue Jul 19 2005 Than Ngo <than@redhat.com> 3.2.4-13
 - buildrequires on xorg-x11-devel
@@ -458,7 +463,7 @@ fi
 * Sun Jun 18 2000 Than Ngo <than@redhat.de>
 - rebuilt in the new build environment
 - enable optimization
- 
+
 * Sat Jun 03 2000 Than Ngo <than@redhat.de>
 - fix requires, xfig-3.2.3a requires transfig-2.2.3 or newer
 - disable optimization -O2 (gcc-2.96 Bug) on i386
@@ -485,9 +490,9 @@ fi
 - converted to use a .desktop file
 
 * Fri Mar 26 1999 Michael Maher <mike@redhat.com>
-- added files that were missing. 
+- added files that were missing.
 
-* Sun Mar 21 1999 Cristian Gafton <gafton@redhat.com> 
+* Sun Mar 21 1999 Cristian Gafton <gafton@redhat.com>
 - auto rebuild in the new build environment (release 4)
 - varargs fix
 
